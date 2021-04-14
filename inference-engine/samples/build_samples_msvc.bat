@@ -1,5 +1,7 @@
 @echo off
 
+@echo un variable modificado por joch
+
 :: Copyright (C) 2018-2021 Intel Corporation
 :: SPDX-License-Identifier: Apache-2.0
 
@@ -17,11 +19,11 @@ set VS_VERSION=
 
 if not "%1" == "" (
    if "%1"=="VS2015" (
-      set "VS_VERSION=2015" 
+      set "VS_VERSION=2015"
    ) else if "%1"=="VS2017" (
-      set "VS_VERSION=2017" 
+      set "VS_VERSION=2017"
    ) else if "%1"=="VS2019" (
-      set "VS_VERSION=2019" 
+      set "VS_VERSION=2019"
    ) else (
       echo Unrecognized option specified "%1"
       echo Supported command line options: VS2015, VS2017, VS2019
@@ -34,15 +36,15 @@ if "%INTEL_OPENVINO_DIR%"=="" (
         call "%ROOT_DIR%\..\..\..\bin\setupvars.bat"
     ) else (
         if exist "%ROOT_DIR%\..\..\..\..\bin\setupvars.bat" (
-            call "%ROOT_DIR%\..\..\..\..\bin\setupvars.bat" 
+            call "%ROOT_DIR%\..\..\..\..\bin\setupvars.bat"
       ) else (
-         echo Failed to set the environment variables automatically    
+         echo Failed to set the environment variables automatically
          echo To fix, run the following command: ^<INSTALL_DIR^>\bin\setupvars.bat
          echo where INSTALL_DIR is the OpenVINO installation directory.
          GOTO errorHandling
       )
     )
-) 
+)
 
 if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
    set "PLATFORM=x64"
